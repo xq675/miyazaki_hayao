@@ -15,4 +15,4 @@ This project demonstrates compliance with modern responsive design and JavaScrip
 - Responsive Layout: each page is built using CSS grid layout and employs media queries to optimize the structure for mobile device, tablet, and desktop viewports
 - JavaScript Interactivity: the site uses DOM queries to update page content, change CSS property, and provide interactive navigation menu using SVG
 
-![Cover of Miyazaki Hayao project](miyazaki_hayao/miyazaki.jpg)
+![Cover of Miyazaki Hayao project](miyazaki.jpg)
