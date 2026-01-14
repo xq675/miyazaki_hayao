@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+
+html {
+	scroll-behavior: smooth;
+	-webkit-text-size-adjust: 100%;
+}
+
+:root {
+	--accent-color: darkblue;
+}
+
+body {
+	width: 88%;
+	max-width: 1440px;
+	margin: auto;
+	margin-top: 2%;
+	margin-bottom: 5%;
+	font-family: Bricolage Grotesque, sans-serif;
+	font-display: swap;
+	background-color: azure;
+	background-image: url("images/studio_ghibli_logo.png");
+	background-size: 15%;
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+
+header {
+	height: 3em;
+}
+
+header.expand {
+	height: 12em;
+}
+
+ul {
+	visibility: collapse;
+}
+
+ul.expand {  /* expand navigation when user clicks on svg icon on mobile and tablet devices */
+	visibility: visible;
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+}
+
+svg {
+	width: 2.5em;
+	height: 2.5em;
+}
+
+svg:hover {
+	cursor: pointer;
+}
+
+main {
+	padding-top: 3%;
+	padding-bottom: 0;
+	margin-bottom: 0;
+	border-top: 1px dashed var(--accent-color);
+}
+
+article p {
+	margin-bottom: 0;
+}
+
+figure img {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+article.a1 {
+	grid-area: a;
+}
+
+article.a2 {
+	grid-area: b;
+}
+
+img {
+	width: 100%;
+	height: auto;
+	border-radius: 0.8em;
+}
+
+figure {
+	grid-area: c;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: 0;
+}
+
+section {
+	padding: 1em;
+	padding-top: 0;
+	margin-bottom: 1em;
+	display: grid;
+	grid-template-areas: /* rearrange articles and images to put images at the bottom of each section */
+	"a"
+	"b"
+	"c";
+}
+
+section.quiz {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 0;
+}
+
+footer {
+	border-top: 1px dashed var(--accent-color);
+}
+
+footer p {
+	margin-top: 0.6em;
+}
+
+h1 {
+	width: 90%;
+}
+
+h2 {
+	margin-top: 0.2em;
+	margin-bottom: 1em;
+}
+
+nav h2 {
+	margin-bottom: 0;
+}
+
+h3 {
+	margin-top: 0.5em;
+	margin-bottom: 0.3em;
+	scroll-margin-top: 1em;
+}
+
+h4 {
+	margin-top: 1em;
+	margin-bottom: 0;
+}
+
+.key {
+	font-weight: bold;
+	cursor: pointer;
+}
+
+ul {
+	list-style: none;
+	margin-top: 0.5em;
+	padding-left: 0;
+}
+
+li {
+	margin-bottom: 2%;
+}
+
+li.selected {
+	background-color: cyan;
+}
+
+li.anchor {
+	font-size: 0.9em;
+	margin-left: 10%;
+	margin-top: 2%;
+}
+
+p.source-left, p.source-right {
+	font-size: 0.8em;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	color: darkgray;
+}
+
+p.credit {
+	margin-top: 2em;
+	text-align: center;
+}
+
+a:link, a:visited {
+	color: var(--accent-color);
+	text-decoration: none;
+}
+
+a:hover {
+	color: #6666ff;
+	text-decoration: underline;
+}
+
+a:active {
+	color: cyan;
+	text-decoration: none;
+}
+
+a:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+li.anchor a:active {
+	text-decoration: underline;
+}
+
+p.source-left a:link, p.source-right a:link, p.source-left a:visited, p.source-right a:visited {
+	color: darkgray;
+}
+
+p.source-left a:hover, p.source-right a:hover {
+	color: #bfbfbf;
+}
+
+p.source-left a:active, p.source-right a:active {
+	color: #bfbfbf;
+	background-color: #bfbfbf;
+}
+
+/* media queries */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--accent-color: cyan;
+	}
+
+	body {
+		background-image: url("images/studio_ghibli_logo_inverted.png");
+		background-color: #003333;
+		color: #00b3b3;
+	}
+
+	li.selected {
+		background-color: #006666;
+	}
+
+	a:hover {
+		color: #00b3b3;
+	}
+
+	a:active {
+		color: #006666;
+	}
+}
+
+@media (min-width: 641px) {
+
+	main {
+		padding-top: 0.6em;
+	}
+
+	section {
+		grid-template-areas: /* change template to put images and articles side by side in each section */
+		'c a'
+		'c b';
+		grid-template-columns: 1fr 1fr;
+		gap: 1em;
+		row-gap: 0;
+	}
+
+	article p {
+		margin-bottom: 0;
+	}
+
+	h2 {
+		padding-top: 0;
+	}
+
+	h3 {
+		scroll-margin-top: 0.8em;
+	}
+
+	li {
+		margin-bottom: 0.6em;
+	}
+
+	li.anchor {
+		margin-top: 0;
+	}
+}
+
+@media (min-width: 961px) {
+	body {
+		display: grid;
+		grid-template-areas: /* change template to align with wireframe */
+		'a a'
+		'b c'
+		'd d';
+		grid-template-rows: auto 1fr auto;
+	    min-height: 100vh;
+		gap: 1em;
+		grid-template-columns: 1fr 4fr;
+	}
+
+	header {
+		grid-area: b;
+	}
+
+	ul { /* default to show navigation in desktop */
+		visibility: visible;
+	}
+
+	ul.expand {
+		visibility: collapse;
+	}
+
+	main {
+		grid-area: c;
+		border-top: none;
+		border-left: 1px dashed var(--accent-color);
+		padding-left: 1em;
+		padding-top: 0;
+	}
+
+	article, figure {
+		width: 32%;
+	}
+
+	section {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 0;
+	}
+
+	footer {
+		grid-area: d;
+	}
+
+	h1 {
+		grid-area: a;
+	}
+
+	h3.heading-right {
+		text-align: right;
+	}
+
+	p.source-right {
+		text-align: right;
+	}
+
+	li {
+		margin-top: 8%;
+		margin-bottom: 2%;
+	}
+
+	li.anchor {
+		font-size: 0.9em;
+		margin-top: 0;
+		margin-left: 12%;
+		margin-bottom: 2%;
+	}
+}
